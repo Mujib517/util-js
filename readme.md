@@ -20,3 +20,12 @@ var util=require('util');
 
 </pre>
 
+2. Map(): to modify values of an object or array and return it.
+
+<pre>
+    var list=[1,2,3];
+
+    util.map(list,functio(val){
+        return val*2;
+    });
+</pre>
