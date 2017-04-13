@@ -5,7 +5,7 @@
   "main": "util.js",
   "scripts": {
     "test": "jasmine-node spec",
-    "build":"uglifyjs util.js -o util.min.js"
+    "build":"uglifyjs util.js -m -o util.min.js"
   },
   "keywords": [],
   "author": "",
