@@ -1,4 +1,4 @@
-const util = require('./../util.min');
+const util = require('./../util');
 
 describe('Utli library', function () {
 
@@ -33,4 +33,29 @@ describe('Utli library', function () {
 
     });
 
-});
+    describe('Map function', function () {
+
+        it('should map and return array', function () {
+            var arr = [1, 2, 3];
+
+            util.map(arr, function (val) {
+                return val * 3;
+            });
+
+            expect(arr).toEqual([3, 6, 9]);
+        });
+
+        it('should map and return an object', function () {
+            var obj = { "one": 1, "two": 2, "three": 3 };
+
+            util.map(obj, function (val) {
+                return val * 3;
+            });
+
+            var result = { "one": 3, "two": 6, "three": 9 };
+
+            expect(obj).toEqual(result);
+        });
+    });
+
+}); 
