@@ -1,4 +1,4 @@
-const util = require('./../util');
+const util = require('./../util.min');
 
 describe('Utli library', function () {
 
@@ -55,6 +55,40 @@ describe('Utli library', function () {
             var result = { "one": 3, "two": 6, "three": 9 };
 
             expect(obj).toEqual(result);
+        });
+    });
+
+    describe('First function', function () {
+
+        it('should return first element from the array', function () {
+            var list = [1, 2, 3];
+
+            var val = util.first(list);
+
+            expect(val).toBe(1);
+        });
+
+        it('should return undefined when array is zero', function () {
+            var val = util.first([]);
+
+            expect(val).toBe(undefined);
+        });
+    });
+
+     describe('Last function', function () {
+
+        it('should return first element from the array', function () {
+            var list = [1, 2, 3];
+
+            var val = util.last(list);
+
+            expect(val).toBe(3);
+        });
+
+        it('should return undefined when array is zero', function () {
+            var val = util.last([]);
+
+            expect(val).toBe(undefined);
         });
     });
 

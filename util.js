@@ -23,11 +23,26 @@ var util = function () {
         else if (typeof list === 'object')
             for (var key in list)
                 list[key] = iteratorFn(list[key]);
-    }
+    };
+
+    var first = function (list) {
+
+        if (Array.isArray(list)) {
+            return list[0];
+        }
+    };
+
+    var last = function (list) {
+        if (Array.isArray(list)) {
+            return list.length > 0 ? list[list.length - 1] : undefined;
+        }
+    };
 
     return {
         each: each,
-        map: map
+        map: map,
+        first: first,
+        last: last
     }
 };
 
