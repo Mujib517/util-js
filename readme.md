@@ -28,3 +28,10 @@ var util=require('util');
         return val*2;
     });
 </pre>
+
+3. First() and Last() to get the first and last element from the list respectively.
+
+<pre>
+    var first=util.map([1,2,3]);
+    var last=util.map([1,2,3]);
+</pre>
