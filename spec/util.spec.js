@@ -1,4 +1,4 @@
-const util = require('./../util.js');
+const util = require('./../util.min');
 
 describe('Utli library', function () {
 
@@ -16,6 +16,21 @@ describe('Utli library', function () {
             expect(str).toBe('123');
 
         });
+
+        it('should loop through array keys when array is passed as parameter', function () {
+
+            var obj = { "one": 1, "two": 2, "three": 3 };
+
+            var str = "";
+
+            util.each(obj, function (val) {
+                str += val;
+            });
+
+            expect(str).toBe('123');
+
+        });
+
     });
 
 });

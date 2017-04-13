@@ -8,10 +8,15 @@ npm install util-js
 
 var util=require('util');
 
-1. Each(): to iterate through an array
+1. Each(): to iterate through an array or object
 
 <pre>
-    var list=util.each(list,function(val){
+
+    var list=[1,2,3];  // var list={"one":1,"two":2,"three":3};
+    
+    util.each(list,function(val){
         console.log(val);
     });
+
 </pre>
+

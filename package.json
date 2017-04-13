@@ -4,12 +4,14 @@
   "description": "",
   "main": "util.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "jasmine-node spec",
+    "build":"uglifyjs util.js -o util.min.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "uglify-js": "^2.8.22"
   }
 }
