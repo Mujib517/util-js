@@ -9,6 +9,23 @@ var util = function () {
         return iteratorFn(elem);
     };
 
+
+    var comparer = function (obj1, obj2, field) {
+        var val1 = obj1, val2 = obj2;
+        if (field) {
+            val1 = obj1[field];
+            val2 = obj2[field];
+        }
+
+        if (val1 < val2) return -1;
+        if (val1 == val2) return 0;
+        return 1;
+    };
+
+    var comparerDesc = function (obj1, obj2, field) {
+        return comparer(obj1,obj2,field) * -1;
+    }
+
     /*Collections*/
 
     var each = function (list, iteratorFn) {
@@ -128,6 +145,29 @@ var util = function () {
         }
     };
 
+    var sortHelper = function (list, field, compareFn) {
+        if (isArray(list)) {
+            for (var i = 1; i < list.length; i++) {
+                for (var j = 0; j < i; j++) {
+                    if (compareFn(list[i], list[j], field) < 0) {
+                        var temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+            return list;
+        }
+    };
+
+    var sortByDesc = function (list, field) {
+        return sortHelper(list, field, comparerDesc);
+    }
+
+    var sort = function (list, field) {
+        return sortHelper(list, field, comparer);
+    }
+
     return {
         each: each,
         map: map,
@@ -138,8 +178,12 @@ var util = function () {
         except: except,
         all: all,
         any: any,
+        contains: any,
         min: min,
-        max:max
+        max: max,
+
+        sort: sort,
+        sortByDesc: sortByDesc
     }
 };
 
