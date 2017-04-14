@@ -5,6 +5,10 @@ var util = function () {
         return Array.isArray(list);
     };
 
+    var filterHelper = function (elem, iteratorFn) {
+        return iteratorFn(elem);
+    };
+
     /*Collections*/
 
     var each = function (list, iteratorFn) {
@@ -51,11 +55,18 @@ var util = function () {
     };
 
     var except = function (list, iteratorFn) {
+
+        //negates the filterHelper
+        var exceptHelper = function (elem, iteratorFn) {
+            return !filterHelper(elem, iteratorFn);
+        };
+
+
         var result = [];
 
         if (isArray(list)) {
             for (var i = 0; i < list.length; i++)
-                if (!iteratorFn(list[i])) result.push(list[i]);
+                if (exceptHelper(list[i], iteratorFn)) result.push(list[i]);
         }
 
         return result;
