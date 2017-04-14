@@ -62,3 +62,21 @@ var util=require('util');
         return val%2==0;
     });  //returns [1,3,5]
 </pre>
+
+6. All(): returns true if all the  elements match the given criteria
+
+<pre>
+    var list=[2,4,6];
+   var result = util.all(list, function (val) {
+                return val % 2 == 0;
+            });  //returns true;
+</pre>
+
+7. Any(): returns true if any of the elements match the given criteria
+
+<pre>
+    var list=[2,4,6];
+   var result = util.any(list, function (val) {
+                return val % 2 == 0;
+            });  //returns true;
+</pre>
