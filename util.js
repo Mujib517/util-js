@@ -72,6 +72,15 @@ var util = function () {
         return result;
     };
 
+    var all = function (list, iteratorFn) {
+        if (isArray(list)) {
+            for (var i = 0; i < list.length; i++)
+                if (!iteratorFn(list[i])) return false;
+            return true;
+        }
+        return false;
+    };
+
 
     /*Array functions*/
 
@@ -95,7 +104,8 @@ var util = function () {
         last: last,
         find: find,
         filter: filter,
-        except: except
+        except: except,
+        all: all
     }
 };
 

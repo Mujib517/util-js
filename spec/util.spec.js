@@ -129,7 +129,7 @@ describe('Utli library', function () {
         });
     });
 
-     describe('Except function', function () {
+    describe('Except function', function () {
 
         it('should return all the values not matching criteria', function () {
             var list = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -138,7 +138,28 @@ describe('Utli library', function () {
                 return val % 2 == 0;
             });
 
-            expect(result).toEqual([1,3,5,7]);
+            expect(result).toEqual([1, 3, 5, 7]);
+        });
+    });
+
+    describe('Except function', function () {
+
+        it('should return true when all the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.all(list, function (val) {
+                return val > 0;
+            });
+
+            expect(result).toBe(true);
+        });
+
+        it('should return false when any of the elements do not match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.all(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(false);
         });
     });
 }); 
