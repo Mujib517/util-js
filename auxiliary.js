@@ -23,7 +23,7 @@ var util = function () {
     };
 
     var comparerDesc = function (obj1, obj2, field) {
-        return comparer(obj1,obj2,field) * -1;
+        return comparer(obj1, obj2, field) * -1;
     }
 
     /*Collections*/
@@ -168,6 +168,31 @@ var util = function () {
         return sortHelper(list, field, comparer);
     }
 
+    var count = function (list, iteratorFn) {
+        if (isArray(list)) {
+            var count = 0;
+
+            for (var i = 0; i < list.length; i++)
+                if (iteratorFn(list[i])) count++;
+
+            return count;
+        }
+    };
+
+    var countBy = function (list, iteratorFn) {
+        if (isArray(list)) {
+            var obj = {};
+
+            for (var i = 0; i < list.length; i++) {
+                var val = iteratorFn(list[i]);
+                obj[val] = obj[val] ? ++obj[val] : 1;
+            }
+
+            return obj;
+        }
+    };
+
+
     return {
         each: each,
         map: map,
@@ -181,6 +206,8 @@ var util = function () {
         contains: any,
         min: min,
         max: max,
+        count: count,
+        countBy: countBy,
 
         sort: sort,
         sortByDesc: sortByDesc

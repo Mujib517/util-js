@@ -116,3 +116,34 @@ var util=require('util');
             ];
      var result = util.sortByDesc(list, "id"); //sorting by id field
 </pre>
+
+11. Count(): to get the count of the elements satisfying the criteria
+
+<pre>
+     var list = [2, 5, 1, 10, 8, 7];
+     var result = util.count(list,function(val){
+         return val%2==0;
+     }); //returns 3
+     
+</pre>
+
+12. CountBy(): to get the count of the elements by their types
+
+<pre>
+    var list = [2, 3, 4, 5, 6, 7, 0, 0, 8, 0];
+
+    var result = util.countBy(list, function (val) {
+        if (val == 0) return 'zero';
+        if (val % 2 == 0) return 'even';
+        return 'odd';
+    });
+
+   /*
+   returns 
+   {
+        zero: 3,
+        even: 4,
+        odd: 3
+    }
+    */
+</pre>
