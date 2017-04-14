@@ -1,4 +1,4 @@
-const util = require('./../util.min');
+const util = require('./../util');
 
 describe('Utli library', function () {
 
@@ -75,7 +75,7 @@ describe('Utli library', function () {
         });
     });
 
-     describe('Last function', function () {
+    describe('Last function', function () {
 
         it('should return first element from the array', function () {
             var list = [1, 2, 3];
@@ -92,4 +92,53 @@ describe('Utli library', function () {
         });
     });
 
+    describe('Find function', function () {
+
+        it('should return first even number', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+
+            var result = util.find(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(2);
+        });
+
+
+        it('should return undefined when no matching element found', function () {
+            var list = [1, 3, 5];
+
+            var result = util.find(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBeUndefined();
+        });
+    });
+
+    describe('Filter function', function () {
+
+        it('should return all the values matching criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.filter(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toEqual([2, 4, 6, 8]);
+        });
+    });
+
+     describe('Except function', function () {
+
+        it('should return all the values not matching criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.except(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toEqual([1,3,5,7]);
+        });
+    });
 }); 
