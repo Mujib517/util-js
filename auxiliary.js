@@ -1,5 +1,6 @@
 var util = function () {
 
+    var self = this;
     /*helpers*/
     var isArray = function (list) {
         return Array.isArray(list);
@@ -24,7 +25,7 @@ var util = function () {
 
     var comparerDesc = function (obj1, obj2, field) {
         return comparer(obj1, obj2, field) * -1;
-    }
+    };
 
     /*Collections*/
 
@@ -32,11 +33,11 @@ var util = function () {
 
         if (isArray(list))
             for (var i = 0; i < list.length; i++)
-                iteratorFn(list[i]);
+                iteratorFn(list[i], i); //call iteratorFn with value and index
 
         else if (typeof list === 'object') {
             for (var key in list) {
-                iteratorFn(list[key]);
+                iteratorFn(list[key], key);
             }
         }
     };
@@ -44,12 +45,14 @@ var util = function () {
     var map = function (list, iteratorFn) {
 
         if (isArray(list))
-            for (var i = 0; i < list.length; i++)
-                list[i] = iteratorFn(list[i]);
+            each(list, function (val, index) {
+                list[index] = iteratorFn(val);
+            });
 
         else if (typeof list === 'object')
-            for (var key in list)
+            each(list, function (val, key) {
                 list[key] = iteratorFn(list[key]);
+            });
     };
 
     var find = function (list, iteratorFn) {
