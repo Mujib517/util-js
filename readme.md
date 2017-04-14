@@ -76,7 +76,15 @@ var util=require('util');
 
 <pre>
     var list=[2,4,6];
-   var result = util.any(list, function (val) {
+    var result = util.any(list, function (val) {
                 return val % 2 == 0;
    });  //returns true;
+</pre>
+
+8. Min() and Max(): returns min and max value from array respectively
+
+<pre>
+    var list=[2,4,6,-2];
+    var min = util.min(list); //returns -2;
+    var max = util.max(list); //returns 6;
 </pre>

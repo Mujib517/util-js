@@ -106,6 +106,28 @@ var util = function () {
         }
     };
 
+    var min = function (list) {
+        if (isArray(list)) {
+            var min = 999999999;
+
+            for (var i = 0; i < list.length; i++)
+                if (list[i] < min) min = list[i];
+
+            return min;
+        }
+    };
+
+    var max = function (list) {
+        if (isArray(list)) {
+            var max = -999999999;
+
+            for (var i = 0; i < list.length; i++)
+                if (list[i] > max) max = list[i];
+
+            return max;
+        }
+    };
+
     return {
         each: each,
         map: map,
@@ -115,7 +137,9 @@ var util = function () {
         filter: filter,
         except: except,
         all: all,
-        any:any
+        any: any,
+        min: min,
+        max:max
     }
 };
 

@@ -142,7 +142,7 @@ describe('Utli library', function () {
         });
     });
 
-    describe('Except function', function () {
+    describe('All function', function () {
 
         it('should return true when all the elements match the criteria', function () {
             var list = [1, 2, 3, 4, 5, 6];
@@ -163,7 +163,7 @@ describe('Utli library', function () {
         });
     });
 
-     describe('Except function', function () {
+    describe('Any function', function () {
 
         it('should return false when none of the elements match the criteria', function () {
             var list = [1, 2, 3, 4, 5, 6];
@@ -181,6 +181,26 @@ describe('Utli library', function () {
             });
 
             expect(result).toBe(true);
+        });
+    });
+
+    describe('Min function', function () {
+
+        it('should return the min value', function () {
+            var list = [1, 2, 3, 4, 5, 6, -2];
+            var result = util.min(list);
+
+            expect(result).toBe(-2);
+        });
+    });
+
+     describe('Max function', function () {
+
+        it('should return the max value', function () {
+            var list = [1, 2, 3, 4, 5, 6, -2];
+            var result = util.max(list);
+
+            expect(result).toBe(6);
         });
     });
 }); 
