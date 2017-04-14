@@ -28,3 +28,63 @@ var util=require('util');
         return val*2;
     });
 </pre>
+
+3. First() and Last() to get the first and last element from the list respectively.
+
+<pre>
+    var first=util.map([1,2,3]);
+    var last=util.map([1,2,3]);
+</pre>
+
+4. Find(): returns the first matching elements from the array
+
+<pre>
+    var list=[1,2,3,4,5,6];
+    var result=util.find(list,function(val){
+        return val%2==0;
+    });  //returns 2
+</pre>
+
+5. Filter(): returns all matching elements from the array
+
+<pre>
+    var list=[1,2,3,4,5,6];
+    var result=util.filter(list,function(val){
+        return val%2==0;
+    });  //returns [2,4,6]
+</pre>
+
+6. Except(): returns all the non matching elements from the array
+
+<pre>
+    var list=[1,2,3,4,5,6];
+    var result=util.excpt(list,function(val){
+        return val%2==0;
+    });  //returns [1,3,5]
+</pre>
+
+6. All(): returns true if all the  elements match the given criteria
+
+<pre>
+    var list=[2,4,6];
+   var result = util.all(list, function (val) {
+                return val % 2 == 0;
+            });  //returns true;
+</pre>
+
+7. Any(): returns true if any of the elements match the given criteria
+
+<pre>
+    var list=[2,4,6];
+    var result = util.any(list, function (val) {
+                return val % 2 == 0;
+   });  //returns true;
+</pre>
+
+8. Min() and Max(): returns min and max value from array respectively
+
+<pre>
+    var list=[2,4,6,-2];
+    var min = util.min(list); //returns -2;
+    var max = util.max(list); //returns 6;
+</pre>

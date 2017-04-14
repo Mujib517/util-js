@@ -58,4 +58,149 @@ describe('Utli library', function () {
         });
     });
 
+    describe('First function', function () {
+
+        it('should return first element from the array', function () {
+            var list = [1, 2, 3];
+
+            var val = util.first(list);
+
+            expect(val).toBe(1);
+        });
+
+        it('should return undefined when array is zero', function () {
+            var val = util.first([]);
+
+            expect(val).toBe(undefined);
+        });
+    });
+
+    describe('Last function', function () {
+
+        it('should return first element from the array', function () {
+            var list = [1, 2, 3];
+
+            var val = util.last(list);
+
+            expect(val).toBe(3);
+        });
+
+        it('should return undefined when array is zero', function () {
+            var val = util.last([]);
+
+            expect(val).toBe(undefined);
+        });
+    });
+
+    describe('Find function', function () {
+
+        it('should return first even number', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+
+            var result = util.find(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(2);
+        });
+
+
+        it('should return undefined when no matching element found', function () {
+            var list = [1, 3, 5];
+
+            var result = util.find(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBeUndefined();
+        });
+    });
+
+    describe('Filter function', function () {
+
+        it('should return all the values matching criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.filter(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toEqual([2, 4, 6, 8]);
+        });
+    });
+
+    describe('Except function', function () {
+
+        it('should return all the values not matching criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.except(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toEqual([1, 3, 5, 7]);
+        });
+    });
+
+    describe('All function', function () {
+
+        it('should return true when all the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.all(list, function (val) {
+                return val > 0;
+            });
+
+            expect(result).toBe(true);
+        });
+
+        it('should return false when any of the elements do not match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.all(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(false);
+        });
+    });
+
+    describe('Any function', function () {
+
+        it('should return false when none of the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.any(list, function (val) {
+                return val == 0;
+            });
+
+            expect(result).toBe(false);
+        });
+
+        it('should return true when any of the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.any(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(true);
+        });
+    });
+
+    describe('Min function', function () {
+
+        it('should return the min value', function () {
+            var list = [1, 2, 3, 4, 5, 6, -2];
+            var result = util.min(list);
+
+            expect(result).toBe(-2);
+        });
+    });
+
+     describe('Max function', function () {
+
+        it('should return the max value', function () {
+            var list = [1, 2, 3, 4, 5, 6, -2];
+            var result = util.max(list);
+
+            expect(result).toBe(6);
+        });
+    });
 }); 
