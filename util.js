@@ -81,6 +81,15 @@ var util = function () {
         return false;
     };
 
+    var any = function (list, iteratorFn) {
+        if (isArray(list)) {
+            for (var i = 0; i < list.length; i++)
+                if (iteratorFn(list[i])) return true;
+            return false;
+        }
+        return false;
+    };
+
 
     /*Array functions*/
 
@@ -105,7 +114,8 @@ var util = function () {
         find: find,
         filter: filter,
         except: except,
-        all: all
+        all: all,
+        any:any
     }
 };
 

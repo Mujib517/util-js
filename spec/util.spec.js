@@ -162,4 +162,25 @@ describe('Utli library', function () {
             expect(result).toBe(false);
         });
     });
+
+     describe('Except function', function () {
+
+        it('should return false when none of the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.any(list, function (val) {
+                return val == 0;
+            });
+
+            expect(result).toBe(false);
+        });
+
+        it('should return true when any of the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.any(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(true);
+        });
+    });
 }); 
