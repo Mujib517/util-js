@@ -78,5 +78,5 @@ var util=require('util');
     var list=[2,4,6];
    var result = util.any(list, function (val) {
                 return val % 2 == 0;
-            });  //returns true;
+   });  //returns true;
 </pre>
