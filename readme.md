@@ -2,7 +2,7 @@ Auxiliary JS : a utility library
 ==================================================================
 <h4>Installation:<h4>
 
-npm install util-js
+npm install auxiliary-js
 
 <h4>Usage:</h4>
 
