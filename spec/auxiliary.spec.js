@@ -276,4 +276,49 @@ describe('Utli library', function () {
         });
     });
 
+    describe('Count function', function () {
+
+        it('should return count', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.count(list, function (val) {
+                return val % 2 == 0;
+            });
+
+            expect(result).toBe(4);
+        })
+    });
+
+    describe('CountBy function', function () {
+
+        it('should return obj grouped by type', function () {
+            var list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            var result = util.countBy(list, function (val) {
+                return val % 2 == 0 ? 'matching' : 'non-matching';
+            });
+
+            expect(result).toEqual({
+                matching: 4,
+                'non-matching': 4
+            });
+        });
+
+        it('should return obj grouped by multiple types', function () {
+            var list = [2, 3, 4, 5, 6, 7, 0, 0, 8, 0];
+
+            var result = util.countBy(list, function (val) {
+                if (val == 0) return 'zero';
+                if (val % 2 == 0) return 'even';
+                return 'odd';
+            });
+
+            expect(result).toEqual({
+                zero: 3,
+                even: 4,
+                odd: 3
+            });
+        });
+    });
+
 }); 
