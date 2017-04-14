@@ -1,11 +1,11 @@
 {
-  "name": "helper-js",
+  "name": "auxiliary-js",
   "version": "1.0.0",
   "description": "",
   "main": "util.js",
   "scripts": {
     "test": "jasmine-node spec",
-    "build": "uglifyjs util.js -m -o util.min.js --source-map  util.js.map"
+    "build": "uglifyjs auxiliary.js -m -o auxiliary.min.js --source-map  auxiliary.js.map"
   },
   "keywords": [],
   "author": "",

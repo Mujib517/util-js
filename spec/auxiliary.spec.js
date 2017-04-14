@@ -1,4 +1,4 @@
-const util = require('./../util');
+const util = require('./../auxiliary');
 
 describe('Utli library', function () {
 

@@ -1,4 +1,4 @@
-Utility library 
+Auxiliary JS : a utility library 
 ==================================================================
 <h4>Installation:<h4>
 
