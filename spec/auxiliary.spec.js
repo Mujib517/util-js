@@ -1,4 +1,4 @@
-const util = require('./../util');
+const util = require('./../auxiliary');
 
 describe('Utli library', function () {
 
@@ -174,6 +174,16 @@ describe('Utli library', function () {
             expect(result).toBe(false);
         });
 
+        // test for contains method
+        it('should return false when none of the elements match the criteria', function () {
+            var list = [1, 2, 3, 4, 5, 6];
+            var result = util.contains(list, function (val) {
+                return val == 0;
+            });
+
+            expect(result).toBe(false);
+        });
+
         it('should return true when any of the elements match the criteria', function () {
             var list = [1, 2, 3, 4, 5, 6];
             var result = util.any(list, function (val) {
@@ -194,7 +204,7 @@ describe('Utli library', function () {
         });
     });
 
-     describe('Max function', function () {
+    describe('Max function', function () {
 
         it('should return the max value', function () {
             var list = [1, 2, 3, 4, 5, 6, -2];
@@ -203,4 +213,67 @@ describe('Utli library', function () {
             expect(result).toBe(6);
         });
     });
+
+    describe('Sort function', function () {
+
+        it('should sort an array', function () {
+            var list = [2, 5, 1, 10, 8, 7];
+
+            var result = util.sort(list);
+
+            expect(result).toEqual([1, 2, 5, 7, 8, 10]);
+        });
+
+
+        it('should sort an array of objects', function () {
+            var list = [
+                { id: 2, name: "abc", price: 100 },
+                { id: 5, name: "ghi", price: 200 },
+                { id: 1, name: "def", price: 300 }
+            ];
+
+            var expected = [
+                { id: 1, name: "def", price: 300 },
+                { id: 2, name: "abc", price: 100 },
+                { id: 5, name: "ghi", price: 200 }
+            ];
+
+
+            var result = util.sort(list, "id");
+
+            expect(result).toEqual(expected);
+        });
+    });
+
+    describe('SortByDesc function', function () {
+
+        it('should sort an array in descending order', function () {
+            var list = [2, 5, 1, 10, 8, 7];
+
+            var result = util.sortByDesc(list);
+
+            expect(result).toEqual([10, 8, 7, 5, 2, 1]);
+        });
+
+
+        it('should sort an array of objects in descending order', function () {
+            var list = [
+                { id: 2, name: "abc", price: 100 },
+                { id: 5, name: "ghi", price: 200 },
+                { id: 1, name: "def", price: 300 }
+            ];
+
+            var expected = [
+                { id: 5, name: "ghi", price: 200 },
+                { id: 2, name: "abc", price: 100 },
+                { id: 1, name: "def", price: 300 }
+            ];
+
+
+            var result = util.sortByDesc(list, "id");
+
+            expect(result).toEqual(expected);
+        });
+    });
+
 }); 

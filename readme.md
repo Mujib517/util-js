@@ -1,4 +1,4 @@
-Utility library 
+Auxiliary JS : a utility library 
 ==================================================================
 <h4>Installation:<h4>
 
@@ -87,4 +87,32 @@ var util=require('util');
     var list=[2,4,6,-2];
     var min = util.min(list); //returns -2;
     var max = util.max(list); //returns 6;
+</pre>
+
+9. Sort(): to sort collections
+
+<pre>
+     var list = [2, 5, 1, 10, 8, 7];
+     var result = util.sortBy(list); 
+     
+     var list = [
+                { id: 2, name: "abc", price: 100 },
+                { id: 5, name: "ghi", price: 200 },
+                { id: 1, name: "def", price: 300 }
+            ];
+     var result = util.sort(list, "id"); //sorting by id field
+</pre>
+
+10. SortByDesc(): to sort collections in descending order
+
+<pre>
+     var list = [2, 5, 1, 10, 8, 7];
+     var result = util.sortByDesc(list); 
+     
+     var list = [
+                { id: 2, name: "abc", price: 100 },
+                { id: 5, name: "ghi", price: 200 },
+                { id: 1, name: "def", price: 300 }
+            ];
+     var result = util.sortByDesc(list, "id"); //sorting by id field
 </pre>
